@@ -3,23 +3,30 @@
     "loglevel": "warning"
   },
   "inbounds": [
-    {
-      "tag": "vless-in",
-      "port": 443,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "2166797c-f912-4a24-a467-c5d0c216cc2d",
-            "flow": ""
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "tcp"
-      }
-    }
+{
+  "tag": "vless-in",
+  "listen": "0.0.0.0",
+  "port": 80,
+  "protocol": "vless",
+  "settings": {
+    "clients": [],
+    "decryption": "none"
+  },
+  "streamSettings": {
+    "network": "tcp",
+    "tcpSettings": {
+    },
+    "security": "none"
+  },
+  "sniffing": {
+    "enabled": true,
+    "destOverride": [
+      "http",
+      "tls",
+      "quic"
+    ]
+  }
+}
   ],
   "outbounds": [
     {
